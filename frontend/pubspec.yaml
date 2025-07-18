@@ -1,0 +1,39 @@
+name: cesam
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  timezone: ^0.10.1
+  syncfusion_flutter_pdfviewer: 30.1.40
+  permission_handler: ^11.0.1
+  image_picker: ^1.1.0
+  badges: ^3.1.1
+  google_fonts: ^6.1.0
+  carousel_slider: ^5.1.1
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo_cesam.png
+    - assets/banner1.jpeg
+    - assets/banner2.jpeg
+    - assets/banner3.jpeg
+    - assets/fonts/Pacifico-Regular.ttf
+
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico-Regular.ttf

@@ -1,0 +1,20 @@
+# Ignore global files
+.DS_Store
+*.log
+
+# Flutter/Dart specific
+**/build/
+**/.dart_tool/
+**/.packages
+**/.idea/
+**/.vscode/
+**/*.iml
+
+# Web builds
+**/web_build/
+
+# Flutter specific generated files
+**/generated_plugin_registrant.dart
+
+# Other
+pubspec.lock
