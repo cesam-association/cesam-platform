@@ -11,15 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+Schema::create('user_profiles', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
 
-            $table->text('biographie')->nullable();
-            $table->string('photo_profil')->nullable(); // URL ou chemin vers la photo
-            
-            $table->timestamps();
-        });
+    $table->string('ecole')->nullable();
+    $table->string('filiere')->nullable();
+    $table->string('niveau_etude')->nullable();
+    $table->string('ville')->nullable();
+
+    $table->boolean('affilie_amci')->default(false);
+    $table->string('matricule_amci')->nullable();
+
+    $table->string('cv_url')->nullable();
+    $table->text('biographie')->nullable();
+    $table->string('photo_profil')->nullable();
+
+    $table->timestamps();
+});
+
     }
 
     /**
