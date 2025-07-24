@@ -19,10 +19,22 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom_complet',
         'email',
         'password',
-    
+        'telephone',
+        'nationalite',
+        'ecole',
+        'filiere',
+        'niveau_etude',
+        'ville',
+        'cv_url',
+        'competences',
+        'projets_realises',
+        'affilie_amci',
+        'code_amci',
+        'verification_token',
+        'is_verified',
     ];
 
     /**
@@ -33,6 +45,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'verification_token',
     ];
 
     /**
@@ -45,6 +58,19 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'competences' => 'array',
+            'projets_realises' => 'array',
+            'is_verified' => 'boolean',
+            'affilie_amci' => 'boolean',
         ];
     }
+
+        /**
+     * Relation avec le profil utilisateur complémentaire.
+     */
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
 }

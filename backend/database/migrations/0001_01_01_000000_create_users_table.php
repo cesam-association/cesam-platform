@@ -11,15 +11,33 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        
+    Schema::create('users', function (Blueprint $table) {
+    $table->id();
+    $table->string('nom_complet');
+    $table->string('email')->unique();
+    $table->string('password');
+    $table->string('telephone')->nullable();
+    $table->string('nationalite')->nullable();
+    
+    $table->string('ecole')->nullable();
+    $table->string('filiere')->nullable();
+    $table->string('niveau_etude')->nullable();
+    $table->string('ville')->nullable();
+
+    $table->boolean('affilie_amci')->default(false);
+    $table->string('code_amci')->nullable();
+
+    $table->string('cv_url')->nullable();
+    $table->json('competences')->nullable();
+    $table->json('projets_realises')->nullable();
+
+    $table->string('verification_token')->nullable();
+    $table->boolean('is_verified')->default(false);
+
+    $table->timestamps();
+});
+
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
