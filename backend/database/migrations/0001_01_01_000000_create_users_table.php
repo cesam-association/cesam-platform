@@ -12,26 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         
-    Schema::create('users', function (Blueprint $table) {
+Schema::create('users', function (Blueprint $table) {
     $table->id();
+
+    //  Auth
     $table->string('nom_complet');
     $table->string('email')->unique();
     $table->string('password');
+
+    //  Contact
     $table->string('telephone')->nullable();
     $table->string('nationalite')->nullable();
-    
-    $table->string('ecole')->nullable();
-    $table->string('filiere')->nullable();
-    $table->string('niveau_etude')->nullable();
-    $table->string('ville')->nullable();
 
-    $table->boolean('affilie_amci')->default(false);
-    $table->string('code_amci')->nullable();
-
-    $table->string('cv_url')->nullable();
-    $table->json('competences')->nullable();
-    $table->json('projets_realises')->nullable();
-
+    //  Email verification
     $table->string('verification_token')->nullable();
     $table->boolean('is_verified')->default(false);
 
