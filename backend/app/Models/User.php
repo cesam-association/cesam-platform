@@ -24,15 +24,6 @@ class User extends Authenticatable
         'password',
         'telephone',
         'nationalite',
-        'ecole',
-        'filiere',
-        'niveau_etude',
-        'ville',
-        'cv_url',
-        'competences',
-        'projets_realises',
-        'affilie_amci',
-        'code_amci',
         'verification_token',
         'is_verified',
     ];
@@ -44,7 +35,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
         'verification_token',
     ];
 
@@ -58,10 +48,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'competences' => 'array',
-            'projets_realises' => 'array',
             'is_verified' => 'boolean',
-            'affilie_amci' => 'boolean',
         ];
     }
 
@@ -73,4 +60,19 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
+    /**
+     * Get all of the user's projects.
+     */
+    public function projets()
+    {
+        return $this->hasMany(Projet::class);
+    }
+
+    /**
+     * Get all of the user's competences.
+     */
+    public function competences()
+    {
+        return $this->hasMany(Competence::class);
+    }
 }
