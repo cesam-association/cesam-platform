@@ -9,7 +9,8 @@
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.9",
-        "spatie/laravel-permission": "^6.21"
+        "spatie/laravel-permission": "^6.21",
+        "maatwebsite/excel": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -67,5 +68,12 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/Maatwebsite/Laravel-Excel"
+    }
+]
+
 }

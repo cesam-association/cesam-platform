@@ -5,7 +5,15 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\profil\UserProfileController;
+use App\Http\Controllers\Api\Admin\UserManagementController;
+use App\Http\Controllers\Admin\CodeBourseImportController;
 
+Route::post('/admin/import-code-bourse', [CodeBourseImportController::class, 'import']);
+Route::get('/admin/test', function () {
+    return response()->json(['message' => 'API fonctionne']);
+});
+// Routes d'authentification
+Route::post('/logout', [LogoutController::class, 'logout']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [UserProfileController::class, 'show']);
     Route::put('/profile', [UserProfileController::class, 'update']);
