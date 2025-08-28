@@ -75,4 +75,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Competence::class);
     }
+
+        /**
+     * Get all videos created by this user.
+     */
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'auteur_id');
+    }
+
+
+    /**
+     * Get all places created by this user.
+     */
+    public function lieux()
+    {
+        return $this->hasMany(Lieu::class, 'auteur_id');
+    }
+
 }
