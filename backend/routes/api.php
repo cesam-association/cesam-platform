@@ -1,11 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Api\Admin\UserManagementController;
 use App\Http\Controllers\Api\VideoController;
 use App\Http\Controllers\Api\Admin\VideoManagementController;
 use App\Http\Controllers\Api\LieuController;
 use App\Http\Controllers\Api\Admin\LieuManagementController;
+=======
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\profil\UserProfileController;
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/profile', [UserProfileController::class, 'show']);
+    Route::put('/profile', [UserProfileController::class, 'update']);
+    Route::delete('/profile', [UserProfileController::class, 'destroy']);
+});
+
+
+
+// Inscription en 5 étapes
+Route::post('/register/step1', [RegisterController::class, 'step1']);
+Route::post('/register/step2', [RegisterController::class, 'step2']);
+Route::post('/register/step3', [RegisterController::class, 'step3']);
+Route::post('/register/step4', [RegisterController::class, 'step4']);
+Route::post('/register/step5', [RegisterController::class, 'step5']);
+
+// Connexion
+Route::post('/login', [LoginController::class, 'login']);
+
 
 
 /*
