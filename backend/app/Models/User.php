@@ -75,4 +75,38 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
+    /**
+     * Get all of the user's projects.
+     */
+    public function projets()
+    {
+        return $this->hasMany(Projet::class);
+    }
+
+    /**
+     * Get all of the user's competences.
+     */
+    public function competences()
+    {
+        return $this->hasMany(Competence::class);
+    }
+
+        /**
+     * Get all videos created by this user.
+     */
+    public function videos()
+    {
+        return $this->hasMany(Video::class, 'auteur_id');
+    }
+
+
+    /**
+     * Get all places created by this user.
+     */
+    public function lieux()
+    {
+        return $this->hasMany(Lieu::class, 'auteur_id');
+    }
+
+
 }
