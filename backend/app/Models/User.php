@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\UserProfile;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Projet;
 
 
 class User extends Authenticatable
@@ -26,15 +29,7 @@ class User extends Authenticatable
         'password',
         'telephone',
         'nationalite',
-        'ecole',
-        'filiere',
-        'niveau_etude',
-        'ville',
-        'cv_url',
-        'competences',
-        'projets_realises',
-        'affilie_amci',
-        'code_amci',
+        'role',
         'verification_token',
         'is_verified',
     ];
@@ -74,14 +69,21 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProfile::class);
     }
+<<<<<<< HEAD
+    /**
+     * Relation avec les projets de l'utilisateur.
+=======
 
     /**
      * Get all of the user's projects.
+>>>>>>> 7d5dfb484107a24e3be892fe937e4ad308030066
      */
     public function projets()
     {
         return $this->hasMany(Projet::class);
     }
+<<<<<<< HEAD
+=======
 
     /**
      * Get all of the user's competences.
@@ -109,4 +111,5 @@ class User extends Authenticatable
     }
 
 
+>>>>>>> 7d5dfb484107a24e3be892fe937e4ad308030066
 }
